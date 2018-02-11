@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="page-header">
+    <h1>YouTube Search
+      <img src="assets/images/loading.gif" alt="Loading..." *ngIf="loading">
+    </h1>
+  </div>
+
+  <app-search-box
+    (loading)="loading = $event"
+    (results)="updateResults($event)">
+  </app-search-box>
+
+  <div>
+    <app-search-result
+      *ngFor="let result of results"
+      [result]="result">
+    </app-search-result>
+  </div>
+</div>
